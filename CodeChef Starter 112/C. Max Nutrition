@@ -1,0 +1,36 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		while(t-- > 0){
+		    int n = sc.nextInt();
+		    int []fruits = new int[n];
+		    int []point = new int[n];
+		    for(int i = 0; i < n; i++)fruits[i] = sc.nextInt();
+		    for(int i = 0; i < n; i++) point[i] = sc.nextInt();
+		    HashMap<Integer, Integer> hm = new HashMap<>();
+		    for(int i = 0; i < n;i++){
+		        int fruit = fruits[i];
+		        int points = point[i];
+		        if(points > 0){
+		            if(!hm.containsKey(fruit)) hm.put(fruit, points);
+		            else if(hm.get(fruit) < points) hm.put(fruit, points);
+		        }
+		    }
+		  //  System.out.println(hm);
+		    long max = 0;
+		    for(int key: hm.keySet()) max += hm.get(key);
+		    System.out.println(max);
+		}
+	}
+}
